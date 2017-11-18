@@ -6,8 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          command: terraform init
+          command: terraform init -input=false
       - run:
-          command: terraform plan
-      - run:
-          command: terraform apply
+          command: terraform apply -input=false -auto-approve
