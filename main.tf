@@ -40,4 +40,5 @@ module "dctechnicalsolutionsus" {
 module "drewcarpenterus" {
   source = "./modules/drewdns"
   domain = "drewcarpenter.us."
+  dkim = "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDK8HaxaOrlBK2NaKF7emrOgakYoW7wrcjOEcw7j3MkSSzN2qNxzci71Gb8D18LRUoef1xIiiXBC0UBagxxlSOSeI8xoLTo6Xb1Nh4oxyIXpNvAOl/IDZ/x6QBvifYs7Ijl8LVP9uJphQaGCaMpQxdhC4c9UFZBrt5MmIj5/TmweQIDAQAB"
 }
