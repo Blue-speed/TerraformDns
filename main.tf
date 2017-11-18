@@ -33,6 +33,7 @@ module "drewgleme" {
   source = "./modules/drewdns"
   domain = "drewgle.me."
   verify = "zb15110177"
+  dkim = "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC7g9O8nF8rrIGl2+8WM2MTv6BGnsdS0FhrfaTSDUP77BPAQ/dNIxvTcR40xAr3rMMpMQ8aDzYo+dvZfSfeajVXQLBLy906bzEbm5QgM/Ph6wdlXWW++RLErSeqx7giDcgDb9e4dsU0hlhACKgE8spwlxxQq4g/NPkfVfekypG7HwIDAQAB"
 }
 
 module "dctechnicalsolutionsus" {
