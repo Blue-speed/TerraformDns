@@ -13,7 +13,7 @@ resource "aws_route53_record" "zohoVerify" {
 
 resource "aws_route53_record" "spf" {
   zone_id = "${data.aws_route53_zone.dctsus.zone_id}"
-  name    = "@"
+  name    = ""
   type    = "TXT"
   ttl     = "300"
   records = ["v=spf1 mx include:zoho.com ~all"]
@@ -21,16 +21,16 @@ resource "aws_route53_record" "spf" {
 
 resource "aws_route53_record" "mx1" {
   zone_id = "${data.aws_route53_zone.dctsus.zone_id}"
-  name    = "@"
+  name    = ""
   type    = "MX"
   ttl     = "300"
-  records = ["mx.zoho.com."]
+  records = ["10 mx.zoho.com."]
 }
 
 resource "aws_route53_record" "mx2" {
   zone_id = "${data.aws_route53_zone.dctsus.zone_id}"
-  name    = "@"
+  name    = ""
   type    = "MX"
   ttl     = "300"
-  records = ["mx2.zoho.com."]
+  records = ["20 mx2.zoho.com."]
 }
