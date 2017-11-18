@@ -24,5 +24,13 @@ resource "aws_route53_record" "mx1" {
   name    = "@"
   type    = "MX"
   ttl     = "300"
-  records = ["mx.zoho.com.", "mx2.zoho.com."]
+  records = ["mx.zoho.com."]
+}
+
+resource "aws_route53_record" "mx2" {
+  zone_id = "${data.aws_route53_zone.dctsus.zone_id}"
+  name    = "@"
+  type    = "MX"
+  ttl     = "300"
+  records = ["mx2.zoho.com."]
 }
