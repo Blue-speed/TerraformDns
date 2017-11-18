@@ -10,4 +10,4 @@ jobs:
       - run:
           command: terraform plan
       - run:
-          command: terraform deploy
+          command: terraform apply
