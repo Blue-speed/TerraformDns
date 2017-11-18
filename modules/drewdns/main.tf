@@ -1,9 +1,6 @@
 variable "domain" {
     type = "string"
 }
-variable "verify" { 
-    type = "string"
-}
 variable "dkim" { 
     type = "string"
     default = ""
@@ -16,14 +13,6 @@ output "zone_id" {
 data "aws_route53_zone" "zone" {
   name         = "${var.domain}"
   private_zone = false
-}
-
-resource "aws_route53_record" "zohoVerify" {
-  zone_id = "${data.aws_route53_zone.zone.zone_id}"
-  name    = "${var.verify}"
-  type    = "CNAME"
-  ttl     = "300"
-  records = ["zmverify.zoho.com."]
 }
 
 resource "aws_route53_record" "spf" {
