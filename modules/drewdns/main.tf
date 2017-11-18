@@ -1,18 +1,25 @@
-data "aws_route53_zone" "bluespeedinfo" {
-  name         = "bluespeed.info."
+variable "domain" {
+    type = "string"
+}
+variable "verify" { 
+    type = "string"
+}
+
+data "aws_route53_zone" "zone" {
+  name         = "${var.domain}"
   private_zone = false
 }
 
 resource "aws_route53_record" "zohoVerify" {
-  zone_id = "${data.aws_route53_zone.bluespeedinfo.zone_id}"
-  name    = "zb14237749"
+  zone_id = "${data.aws_route53_zone.zone.zone_id}"
+  name    = "${var.verify}"
   type    = "CNAME"
   ttl     = "300"
   records = ["zmverify.zoho.com."]
 }
 
 resource "aws_route53_record" "spf" {
-  zone_id = "${data.aws_route53_zone.bluespeedinfo.zone_id}"
+  zone_id = "${data.aws_route53_zone.zone.zone_id}"
   name    = ""
   type    = "TXT"
   ttl     = "300"
@@ -20,7 +27,7 @@ resource "aws_route53_record" "spf" {
 }
 
 resource "aws_route53_record" "mx1" {
-  zone_id = "${data.aws_route53_zone.bluespeedinfo.zone_id}"
+  zone_id = "${data.aws_route53_zone.zone.zone_id}"
   name    = ""
   type    = "MX"
   ttl     = "300"
@@ -28,7 +35,7 @@ resource "aws_route53_record" "mx1" {
 }
 
 resource "aws_route53_record" "mx2" {
-  zone_id = "${data.aws_route53_zone.bluespeedinfo.zone_id}"
+  zone_id = "${data.aws_route53_zone.zone.zone_id}"
   name    = ""
   type    = "MX"
   ttl     = "300"
