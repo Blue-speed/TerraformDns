@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: hashicorp/terraform:0.11.0
+    steps:
+      - checkout
+      - run:
+          command: terraform init
+      - run:
+          command: terraform plan
+      - run:
+          command: terraform deploy
