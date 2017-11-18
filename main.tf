@@ -14,6 +14,7 @@ module "bluespeedinfo" {
   source = "./modules/drewdns"
   domain = "bluespeed.info."
   verify = "zb14237749"
+  dkim = "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCB2WtfhMq05g+fqRfvGHzXaqvHif1bjCbUlF6QugP/pto0TVh69paYfxcTbhBgP1E99LxwAVMAuc0ZrnTTToNcYDRVzApyG/zeHKaYQpgCY/4ApRPHProwCPTpKclP9YEepBcYTFdd6uoUJlSZQMt0OyHdVnCePpXcym5CcI1JDwIDAQAB"
 }
 
 module "bluespeedus" {
@@ -31,7 +32,7 @@ module "dctsus" {
 module "drewgleme" {
   source = "./modules/drewdns"
   domain = "drewgle.me."
-  verify = "zb14237763"
+  verify = "zb15110177"
 }
 
 module "dctechnicalsolutionsus" {

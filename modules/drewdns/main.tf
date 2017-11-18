@@ -4,6 +4,14 @@ variable "domain" {
 variable "verify" { 
     type = "string"
 }
+variable "dkim" { 
+    type = "string"
+    default = ""
+}
+
+output "zone_id" {
+  value  = "${data.aws_route53_zone.zone.zone_id}"
+}
 
 data "aws_route53_zone" "zone" {
   name         = "${var.domain}"
@@ -24,6 +32,14 @@ resource "aws_route53_record" "spf" {
   type    = "TXT"
   ttl     = "300"
   records = ["v=spf1 mx include:zoho.com ~all"]
+}
+
+resource "aws_route53_record" "dkim" {
+  zone_id = "${data.aws_route53_zone.zone.zone_id}"
+  name    = "zoho._domainkey"
+  type    = "TXT"
+  ttl     = "300"
+  records = ["${var.dkim}"]
 }
 
 resource "aws_route53_record" "mx1" {
