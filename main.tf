@@ -8,3 +8,4 @@ terraform {
     key    = "terraformDns"
     region = "us-east-1"
   }
+}
